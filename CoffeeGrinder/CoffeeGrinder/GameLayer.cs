@@ -15,13 +15,13 @@ namespace CoffeeGrinder
 
         public GameLayer() : base(CCColor4B.Gray)
         {
-            _titleLabel = new CCLabel("Coffee Grinder", "Fonts/MarkerFelt", 22, CCLabelFormat.SpriteFont);
+            _titleLabel = new CCLabel("Coffee Grinder", "Arial", 256, CCLabelFormat.SystemFont);
             AddChild(_titleLabel);
-            _countLabel = new CCLabel("0 Beans Ground", "Fonts/MarkerFelt", 22, CCLabelFormat.SpriteFont);
+            _countLabel = new CCLabel("0 Beans Ground", "Arial", 144, CCLabelFormat.SystemFont);
             AddChild(_countLabel);
 
             _grinderSprite = new CCSprite("BasicGrinder");
-            _grinderSprite.Scale = 2;
+            _grinderSprite.Scale = 4;
             AddChild(_grinderSprite);
 
         }
@@ -35,7 +35,7 @@ namespace CoffeeGrinder
 
             _grinderSprite.Position = bounds.Center;
             _titleLabel.Position = new CCPoint(bounds.Center.X, bounds.MaxY - 100);
-            _countLabel.Position = new CCPoint(bounds.Center.X, bounds.MaxY - 150);
+            _countLabel.Position = new CCPoint(bounds.Center.X, bounds.MaxY - 300);
 
             // Register for touch events
             var touchListener = new CCEventListenerTouchAllAtOnce();

@@ -17,8 +17,8 @@ namespace CoffeeGrinder
                 var contentSearchPaths = new List<string>() { "Fonts", "Sounds" };
                 CCSizeI viewSize = gameView.ViewSize;
 
-                int height = 1024;
-                int width = 768;
+                int height = 2048;
+                int width = 1326;
 
                 // Set world dimensions
                 gameView.DesignResolution = new CCSizeI(width, height);

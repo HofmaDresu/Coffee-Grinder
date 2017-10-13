@@ -62,7 +62,6 @@
   </PropertyGroup>
   <ItemGroup>
     <BundleResource Include="Content\BasicGrinder.png" />
-    <Content Include="Content\Fonts\MarkerFelt-22.xnb" />
     <Compile Include="AppDelegate.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -85,6 +84,7 @@
     <InterfaceDefinition Include="Main.storyboard" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Content\Fonts\" />
     <Folder Include="Content\Images\Hd\" />
     <Folder Include="Content\Images\Ld\" />
     <Folder Include="Content\Sounds\" />

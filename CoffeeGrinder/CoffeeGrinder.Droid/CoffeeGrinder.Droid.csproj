@@ -71,7 +71,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidAsset Include="Assets\Content\Fonts\MarkerFelt-22.xnb" />
     <None Include="packages.config" />
     <None Include="Resources\AboutResources.txt" />
     <None Include="Assets\AboutAssets.txt" />
@@ -86,6 +85,7 @@
     <AndroidResource Include="Resources\drawable-xxxhdpi\Icon.png" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Assets\Content\Fonts\" />
     <Folder Include="Assets\Content\Images\Hd\" />
     <Folder Include="Assets\Content\Images\Ld\" />
     <Folder Include="Assets\Content\Sounds\" />

@@ -14,7 +14,7 @@ using CoffeeGrinder;
 
 namespace CoffeeGrinder.Droid
 {
-    [Activity(Label = "CoffeeGrinder.Droid", MainLauncher = true, Icon = "@drawable/icon", 
+    [Activity(Label = "CoffeeGrinder.Droid", MainLauncher = true, Icon = "@drawable/icon", Theme = "@android:style/Theme.NoTitleBar.Fullscreen",
         AlwaysRetainTaskState = true,
         LaunchMode = LaunchMode.SingleInstance,
     ScreenOrientation = ScreenOrientation.Portrait,
