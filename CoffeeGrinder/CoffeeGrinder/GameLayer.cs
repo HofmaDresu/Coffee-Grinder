@@ -17,13 +17,19 @@ namespace CoffeeGrinder
         {
             _titleLabel = new CCLabel("Coffee Grinder", "Arial", 256, CCLabelFormat.SystemFont);
             AddChild(_titleLabel);
-            _countLabel = new CCLabel("0 Beans Ground", "Arial", 144, CCLabelFormat.SystemFont);
+            _countLabel = new CCLabel($"{GameDelegate.BeansGround} Beans Ground", "Arial", 144, CCLabelFormat.SystemFont);
             AddChild(_countLabel);
 
             _grinderSprite = new CCSprite("BasicGrinder");
             _grinderSprite.Scale = 4;
             AddChild(_grinderSprite);
 
+            Schedule(RunGameLogic);
+        }
+
+        private void RunGameLogic(float obj)
+        {
+            _countLabel.Text = $"{GameDelegate.BeansGround} Beans Ground";
         }
 
         protected override void AddedToScene()
@@ -47,7 +53,7 @@ namespace CoffeeGrinder
         {
             if (touches.Count > 0)
             {
-                // Perform touch handling here
+                GameDelegate.BeansGround += touches.Count;
             }
         }
 	}

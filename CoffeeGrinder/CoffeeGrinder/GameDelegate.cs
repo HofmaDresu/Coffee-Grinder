@@ -8,6 +8,8 @@ namespace CoffeeGrinder
 {
     public static class GameDelegate
     {
+        public static long BeansGround = 0;
+
         public static void LoadGame(object sender, EventArgs e)
         {
             CCGameView gameView = sender as CCGameView;
