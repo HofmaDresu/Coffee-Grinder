@@ -5,7 +5,7 @@ using Microsoft.Xna.Framework;
 
 namespace CoffeeGrinder
 {
-    public class GrinderLayer : CCLayerColor
+    public class GrinderLayer : CCLayer
     {
 
         // Define a label variable
@@ -13,7 +13,7 @@ namespace CoffeeGrinder
         CCLabel _countLabel;
         CCSprite _grinderSprite;
 
-        public GrinderLayer() : base(CCColor4B.Transparent)
+        public GrinderLayer() 
         {
             _titleLabel = new CCLabel("Coffee Grinder", "Arial", 62, CCLabelFormat.SystemFont);
             AddChild(_titleLabel);
