@@ -15,13 +15,13 @@ namespace CoffeeGrinder
 
         public GameLayer() : base(CCColor4B.Gray)
         {
-            _titleLabel = new CCLabel("Coffee Grinder", "Arial", 256, CCLabelFormat.SystemFont);
+            _titleLabel = new CCLabel("Coffee Grinder", "Arial", 124, CCLabelFormat.SystemFont);
             AddChild(_titleLabel);
-            _countLabel = new CCLabel($"{GameDelegate.BeansGround} Beans Ground", "Arial", 144, CCLabelFormat.SystemFont);
+            _countLabel = new CCLabel($"{GameDelegate.BeansGround} Beans Ground", "Arial", 72, CCLabelFormat.SystemFont);
             AddChild(_countLabel);
 
             _grinderSprite = new CCSprite("BasicGrinder");
-            _grinderSprite.Scale = 4;
+            _grinderSprite.Scale = 2;
             AddChild(_grinderSprite);
 
             Schedule(RunGameLogic);

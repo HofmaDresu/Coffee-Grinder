@@ -61,7 +61,7 @@
     <CodesignKey>iPhone Developer</CodesignKey>
   </PropertyGroup>
   <ItemGroup>
-    <BundleResource Include="Content\BasicGrinder.png" />
+    <BundleResource Include="Content\Images\BasicGrinder.png" />
     <Compile Include="AppDelegate.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
