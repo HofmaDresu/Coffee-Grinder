@@ -71,6 +71,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <AndroidAsset Include="Assets\Content\Sounds\CoffeeBlack.ogg" />
     <None Include="packages.config" />
     <None Include="Resources\AboutResources.txt" />
     <None Include="Assets\AboutAssets.txt" />
@@ -88,7 +89,6 @@
     <Folder Include="Assets\Content\Fonts\" />
     <Folder Include="Assets\Content\Images\Hd\" />
     <Folder Include="Assets\Content\Images\Ld\" />
-    <Folder Include="Assets\Content\Sounds\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CoffeeGrinder\CoffeeGrinder.csproj">

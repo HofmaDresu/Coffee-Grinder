@@ -32,6 +32,11 @@ namespace CoffeeGrinder
             GameView.DesignResolution = new CCSizeI(width, height);            
             
             gameView.RunWithScene(new GameScene(GameView));
+            InitializeAudio();
+        }
+        private static void InitializeAudio()
+        {
+            CCAudioEngine.SharedEngine.PlayBackgroundMusic("CoffeeBlack");
         }
 
         public static void GoToScene(CCScene scene)
