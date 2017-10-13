@@ -13,7 +13,7 @@ namespace CoffeeGrinder
         CCLabel _countLabel;
         CCSprite _grinderSprite;
 
-        public GrinderLayer() : base(CCColor4B.Gray)
+        public GrinderLayer() : base(CCColor4B.Transparent)
         {
             _titleLabel = new CCLabel("Coffee Grinder", "Arial", 62, CCLabelFormat.SystemFont);
             AddChild(_titleLabel);
