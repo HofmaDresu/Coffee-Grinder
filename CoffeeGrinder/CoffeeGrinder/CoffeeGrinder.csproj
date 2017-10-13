@@ -31,8 +31,9 @@
     <ConsolePause>false</ConsolePause>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="GameDelegate.cs" />
-    <Compile Include="GameLayer.cs" />
+    <Compile Include="GameController.cs" />
+    <Compile Include="GameScene.cs" />
+    <Compile Include="GrinderLayer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

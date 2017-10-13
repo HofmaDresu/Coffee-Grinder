@@ -5,7 +5,7 @@ using Microsoft.Xna.Framework;
 
 namespace CoffeeGrinder
 {
-    public class GameLayer : CCLayerColor
+    public class GrinderLayer : CCLayerColor
     {
 
         // Define a label variable
@@ -13,15 +13,15 @@ namespace CoffeeGrinder
         CCLabel _countLabel;
         CCSprite _grinderSprite;
 
-        public GameLayer() : base(CCColor4B.Gray)
+        public GrinderLayer() : base(CCColor4B.Gray)
         {
-            _titleLabel = new CCLabel("Coffee Grinder", "Arial", 124, CCLabelFormat.SystemFont);
+            _titleLabel = new CCLabel("Coffee Grinder", "Arial", 62, CCLabelFormat.SystemFont);
             AddChild(_titleLabel);
-            _countLabel = new CCLabel($"{GameDelegate.BeansGround} Beans Ground", "Arial", 72, CCLabelFormat.SystemFont);
+            _countLabel = new CCLabel($"{GameController.BeansGround} Beans Ground", "Arial", 36, CCLabelFormat.SystemFont);
             AddChild(_countLabel);
 
             _grinderSprite = new CCSprite("BasicGrinder");
-            _grinderSprite.Scale = 2;
+            _grinderSprite.Scale = 1;
             AddChild(_grinderSprite);
 
             Schedule(RunGameLogic);
@@ -29,7 +29,7 @@ namespace CoffeeGrinder
 
         private void RunGameLogic(float obj)
         {
-            _countLabel.Text = $"{GameDelegate.BeansGround} Beans Ground";
+            _countLabel.Text = $"{GameController.BeansGround} Beans Ground";
         }
 
         protected override void AddedToScene()
@@ -40,8 +40,8 @@ namespace CoffeeGrinder
             var bounds = VisibleBoundsWorldspace;
 
             _grinderSprite.Position = bounds.Center;
-            _titleLabel.Position = new CCPoint(bounds.Center.X, bounds.MaxY - 100);
-            _countLabel.Position = new CCPoint(bounds.Center.X, bounds.MaxY - 300);
+            _titleLabel.Position = new CCPoint(bounds.Center.X, bounds.MaxY - 50);
+            _countLabel.Position = new CCPoint(bounds.Center.X, bounds.MaxY - 150);
 
             // Register for touch events
             var touchListener = new CCEventListenerTouchAllAtOnce();
@@ -53,7 +53,7 @@ namespace CoffeeGrinder
         {
             if (touches.Count > 0)
             {
-                GameDelegate.BeansGround += touches.Count;
+                GameController.BeansGround += touches.Count;
             }
         }
 	}
