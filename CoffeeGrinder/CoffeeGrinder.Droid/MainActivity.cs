@@ -17,6 +17,7 @@ namespace CoffeeGrinder.Droid
     [Activity(Label = "CoffeeGrinder.Droid", MainLauncher = true, Icon = "@drawable/icon", 
         AlwaysRetainTaskState = true,
         LaunchMode = LaunchMode.SingleInstance,
+    ScreenOrientation = ScreenOrientation.Portrait,
         ConfigurationChanges = ConfigChanges.Orientation | ConfigChanges.ScreenSize | ConfigChanges.Keyboard | ConfigChanges.KeyboardHidden)]
     public class MainActivity : Activity
     {

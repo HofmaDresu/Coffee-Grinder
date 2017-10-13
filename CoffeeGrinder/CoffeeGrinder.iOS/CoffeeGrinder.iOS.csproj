@@ -61,6 +61,7 @@
     <CodesignKey>iPhone Developer</CodesignKey>
   </PropertyGroup>
   <ItemGroup>
+    <BundleResource Include="Content\BasicGrinder.png" />
     <Content Include="Content\Fonts\MarkerFelt-22.xnb" />
     <Compile Include="AppDelegate.cs" />
     <Compile Include="Main.cs" />
