@@ -10,7 +10,7 @@ namespace CoffeeGrinder
 {
     public static class GameController
     {
-        public static long BeansGround;
+        public static double BeansGround;
         public static float NavAreaHeight;
 
         public static HandGrinder CoffeeHandGrinder = new HandGrinder();
@@ -41,8 +41,7 @@ namespace CoffeeGrinder
 
             contentSearchPaths.Add("Images");
             GameView.ContentManager.SearchPaths = contentSearchPaths;
-
-            // We use a lower-resolution display to get a pixellated appearance
+                
             int width = 768;
             int height = 1024;
             GameView.DesignResolution = new CCSizeI(width, height);
@@ -53,7 +52,7 @@ namespace CoffeeGrinder
 
         private static void InitializeAudio()
         {
-            CCAudioEngine.SharedEngine.PlayBackgroundMusic("CoffeeBlack");
+            CCAudioEngine.SharedEngine.PlayBackgroundMusic("CoffeeBlack", true);
         }
 
         public static void GoToGrinder()

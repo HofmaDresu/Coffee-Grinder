@@ -59,7 +59,6 @@ namespace CoffeeGrinder.Entities
 
             if (firstTouch != null)
             {
-
                 bool isTouchInside = BoundingBoxTransformedToWorld.ContainsPoint(firstTouch.Location);
 
                 if (isTouchInside && GameController.BeansGround >= _upgrade.UpgradePrice)

@@ -15,12 +15,12 @@ namespace CoffeeGrinder
             _navLayer = new NavLayer();
             AddLayer(_navLayer, 1000);
 
-            Schedule(GrindPerSecond, 1);
+            Schedule(GrindPerSecond);
         }
 
         protected void GrindPerSecond(float obj)
         {
-            GameController.BeansGround += GameController.GrindsPerSecond;
+            GameController.BeansGround += GameController.GrindsPerSecond * obj;
         }
     }
 }

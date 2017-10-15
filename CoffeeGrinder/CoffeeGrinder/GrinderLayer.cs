@@ -19,7 +19,7 @@ namespace CoffeeGrinder
             _titleLabel = new CCLabel("Coffee Grinder", "Arial", 62, CCLabelFormat.SystemFont);
             AddChild(_titleLabel);
 
-            _countLabel = new CCLabel($"{GameController.BeansGround} Beans Ground", "Arial", 36, CCLabelFormat.SystemFont);
+            _countLabel = new CCLabel($"{Math.Floor(GameController.BeansGround)} Beans Ground", "Arial", 36, CCLabelFormat.SystemFont);
             AddChild(_countLabel);
 
             _grinderSprite = new CCSprite("BasicGrinder");
@@ -33,7 +33,7 @@ namespace CoffeeGrinder
 
         private void RunGameLogic(float obj)
         {
-            _countLabel.Text = $"{GameController.BeansGround} Beans Ground";
+            _countLabel.Text = $"{Math.Floor(GameController.BeansGround)} Beans Ground";
         }
 
         protected override void AddedToScene()
