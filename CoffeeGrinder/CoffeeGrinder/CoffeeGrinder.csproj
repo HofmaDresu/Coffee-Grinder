@@ -31,9 +31,11 @@
     <ConsolePause>false</ConsolePause>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Entities\NavButton.cs" />
     <Compile Include="GameController.cs" />
     <Compile Include="GameScene.cs" />
     <Compile Include="GrinderLayer.cs" />
+    <Compile Include="NavLayer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
