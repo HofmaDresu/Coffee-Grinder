@@ -20,7 +20,7 @@ namespace CoffeeGrinder.Upgrades
             UpgradePrice = (int)Math.Ceiling(UpgradePrice * 1.25);
         }
 
-        public int NextGrindsPerAction => GrindsPerAction == 0 ? InitialGrindsPerAction : (int)Math.Ceiling(GrindsPerAction * 1.1);
+        public int NextGrindsPerAction => GrindsPerAction == 0 ? InitialGrindsPerAction : (int)Math.Ceiling(GrindsPerAction * (IncrementType == IncrementType.PerTap ? 1.1 : 1.25));
     }
 
 
