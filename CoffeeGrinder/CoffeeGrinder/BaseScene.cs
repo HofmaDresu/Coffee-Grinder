@@ -11,7 +11,7 @@ namespace CoffeeGrinder
 
         protected void GrindPerSecond(float obj)
         {
-            GameController.BeansGround += GameController.CoffeeElectricGrinder.GrindsPerAction + GameController.CoffeeBarista.GrindsPerAction;
+            GameController.BeansGround += GameController.GrindsPerSecond;
         }
     }
 }

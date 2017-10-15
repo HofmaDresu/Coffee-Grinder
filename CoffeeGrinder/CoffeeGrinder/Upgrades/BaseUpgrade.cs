@@ -4,6 +4,7 @@ namespace CoffeeGrinder.Upgrades
 {
     public class BaseUpgrade
     {
+        public string DisplayName { get; set; }
         public int Level { get; set; }
         public int GrindsPerAction { get; set; }
         public int UpgradePrice { get; set; }

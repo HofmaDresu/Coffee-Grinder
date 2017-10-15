@@ -13,12 +13,9 @@ namespace CoffeeGrinder.Entities
         CCSprite _buttonSprite;
         CCEventListenerTouchAllAtOnce touchListener;
         BaseUpgrade _upgrade;
-        string _buttonLabel;
 
-        public UpgradeButton(string buttonLabel, float height, float width, BaseUpgrade upgrade)
+        public UpgradeButton(float height, float width, BaseUpgrade upgrade)
         {
-
-            _buttonLabel = buttonLabel;
             _upgrade = upgrade;
 
             ContentSize = new CCSize(width, height);
@@ -28,7 +25,7 @@ namespace CoffeeGrinder.Entities
             drawNode.DrawPolygon(buttonBackgroundPoints, buttonBackgroundPoints.Length, CCColor4B.Gray, 1, CCColor4B.Black);
             AddChild(drawNode);
 
-            _upgradeTitleLabel = new CCLabel($"{_buttonLabel} (Lvl {_upgrade.Level})", "Arial", 40, CCLabelFormat.SystemFont)
+            _upgradeTitleLabel = new CCLabel($"{_upgrade.DisplayName} (Lvl {_upgrade.Level})", "Arial", 40, CCLabelFormat.SystemFont)
             {
                 AnchorPoint = CCPoint.AnchorLowerLeft,
                 Position = new CCPoint(20, 50)
@@ -68,7 +65,7 @@ namespace CoffeeGrinder.Entities
                 if (isTouchInside && GameController.BeansGround >= _upgrade.UpgradePrice)
                 {
                     _upgrade.Upgrade();
-                    _upgradeTitleLabel.Text = $"{_buttonLabel} (Lvl {_upgrade.Level})";
+                    _upgradeTitleLabel.Text = $"{_upgrade.DisplayName} (Lvl {_upgrade.Level})";
                     _upgradeCostLabel.Text = $"{_upgrade.UpgradePrice} ground beans";
                     _upgradeEffectLabel.Text = $"{_upgrade.GrindsPerAction} -> {_upgrade.NextGrindsPerAction} {GetIncrementTypeString()}";
                 }

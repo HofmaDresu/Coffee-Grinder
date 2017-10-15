@@ -17,6 +17,11 @@ namespace CoffeeGrinder
         public static ElectricGrinder CoffeeElectricGrinder = new ElectricGrinder();
         public static Barista CoffeeBarista = new Barista();
 
+
+        public static List<BaseUpgrade> AllUpgrades => new List<BaseUpgrade> { CoffeeHandGrinder, CoffeeElectricGrinder, CoffeeBarista };
+
+        public static long GrindsPerSecond => AllUpgrades.Where(u => u.IncrementType == IncrementType.PerSecond).Sum(u => u.GrindsPerAction);
+
         public static CCGameView GameView
         {
             get;

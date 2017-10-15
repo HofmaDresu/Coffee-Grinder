@@ -10,6 +10,7 @@ namespace CoffeeGrinder.Upgrades
     {
         public HandGrinder()
         {
+            DisplayName = "Hand Grinders";
             Level = 1;
             InitialGrindsPerAction = 1;
             GrindsPerAction = 1;

@@ -4,6 +4,7 @@
     {
         public ElectricGrinder()
         {
+            DisplayName = "Electric Grinders";
             Level = 0;
             InitialGrindsPerAction = 1;
             GrindsPerAction = 0;

@@ -4,6 +4,7 @@
     {
         public Barista()
         {
+            DisplayName = "Baristas";
             Level = 0;
             InitialGrindsPerAction = 5;
             GrindsPerAction = 0;
