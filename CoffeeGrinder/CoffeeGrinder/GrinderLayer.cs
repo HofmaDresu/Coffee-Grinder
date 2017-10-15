@@ -43,11 +43,11 @@ namespace CoffeeGrinder
             _clickableArea.ContentSize = new CCSize(VisibleBoundsWorldspace.MaxX, VisibleBoundsWorldspace.MaxY - GameController.NavAreaHeight);
             _clickableArea.PositionY = GameController.NavAreaHeight;
 
-            var bounds = _clickableArea.ContentSize;
+            var bounds = VisibleBoundsWorldspace;
 
-            _grinderSprite.Position = bounds.Center;
-            _titleLabel.Position = new CCPoint(bounds.Center.X, bounds.Height - 50);
-            _countLabel.Position = new CCPoint(bounds.Center.X, bounds.Height - 150);
+            _grinderSprite.Position = new CCPoint(bounds.Center.X, bounds.Center.Y + (.5f * GameController.NavAreaHeight)); ;
+            _titleLabel.Position = new CCPoint(bounds.Center.X, bounds.MaxY - 50);
+            _countLabel.Position = new CCPoint(bounds.Center.X, bounds.MaxY - 150);
 
 
 
