@@ -27,8 +27,8 @@ namespace CoffeeGrinder.Entities
 
             _upgradeTitleLabel = new CCLabel($"{_upgrade.DisplayName} (Lvl {_upgrade.Level})", "Arial", 40, CCLabelFormat.SystemFont)
             {
-                AnchorPoint = CCPoint.AnchorLowerLeft,
-                Position = new CCPoint(20, 50)
+                AnchorPoint = CCPoint.AnchorUpperLeft,
+                Position = new CCPoint(20, height - 10)
             };
             AddChild(_upgradeTitleLabel);
 
