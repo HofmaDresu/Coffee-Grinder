@@ -10,17 +10,9 @@ namespace CoffeeGrinder
     public class UpgradesScene : BaseScene
     {
         CCLayer _upgradesLayer;
-        CCLayer _backgroundLayer;
-        CCLayer _navLayer;
 
         public UpgradesScene(CCGameView gameView) : base(gameView)
         {
-            _backgroundLayer = new CCLayerColor(CCColor4B.LightGray);
-            AddLayer(_backgroundLayer);
-
-            _navLayer = new NavLayer();
-            AddLayer(_navLayer);
-
             _upgradesLayer = new UpgradesLayer();
             AddLayer(_upgradesLayer);
         }
