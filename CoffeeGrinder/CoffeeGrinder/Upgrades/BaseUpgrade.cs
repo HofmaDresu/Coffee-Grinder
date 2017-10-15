@@ -12,8 +12,18 @@ namespace CoffeeGrinder.Upgrades
         public void Upgrade()
         {
             Level++;
-            GrindsPerAction += (int)Math.Ceiling(GrindsPerAction * .15);
-            UpgradePrice += (int)Math.Ceiling(UpgradePrice * 1.5);
+            if(GrindsPerAction == 0)
+            {
+                GrindsPerAction = InitialGrindsPerAction;
+            }
+            else
+            {
+                GrindsPerAction += (int)Math.Ceiling(GrindsPerAction * .1);
+            }
+
+            GameController.BeansGround -= UpgradePrice;
+
+            UpgradePrice = (int)Math.Ceiling(UpgradePrice * 1.25);
         }
     }
 }
