@@ -12,6 +12,9 @@ namespace CoffeeGrinder
         public static long BeansGround;
         public static float NavAreaHeight;
 
+        private static CCScene _gameScene;
+        private static CCScene _upgradesScene;
+
         public static CCGameView GameView
         {
             get;
@@ -30,19 +33,25 @@ namespace CoffeeGrinder
             // We use a lower-resolution display to get a pixellated appearance
             int width = 768;
             int height = 1024;
-            GameView.DesignResolution = new CCSizeI(width, height);            
+            GameView.DesignResolution = new CCSizeI(width, height);
             
             gameView.RunWithScene(new GameScene(GameView));
             InitializeAudio();
         }
+
         private static void InitializeAudio()
         {
             CCAudioEngine.SharedEngine.PlayBackgroundMusic("CoffeeBlack");
         }
 
-        public static void GoToScene(CCScene scene)
+        public static void GoToGrinder()
         {
-            GameView.Director.ReplaceScene(scene);
+            GameView.Director.ReplaceScene(new GameScene(GameView));
+        }
+
+        public static void GoToUpgrades()
+        {
+            GameView.Director.ReplaceScene(new UpgradesScene(GameView));
         }
     }
 }

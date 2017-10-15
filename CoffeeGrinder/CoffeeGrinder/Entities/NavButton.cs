@@ -12,9 +12,12 @@ namespace CoffeeGrinder.Entities
         CCLabel _buttonLabel;
         CCSprite _buttonSprite;
         CCEventListenerTouchAllAtOnce touchListener;
+        Action _clickAction;
 
-        public NavButton(string buttonLabel)
+        public NavButton(string buttonLabel, Action clickAction)
         {
+            _clickAction = clickAction;
+
             var size = GameController.NavAreaHeight;
             ContentSize = new CCSize(size, size);
             AnchorPoint = CCPoint.AnchorLowerLeft;
@@ -48,7 +51,7 @@ namespace CoffeeGrinder.Entities
 
                 if (isTouchInside)
                 {
-                    int foo = 1;
+                    _clickAction?.Invoke();
                 }
             }
         }

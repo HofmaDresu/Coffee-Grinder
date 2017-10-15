@@ -21,24 +21,24 @@ namespace CoffeeGrinder
 
 
             GameController.NavAreaHeight = VisibleBoundsWorldspace.MaxX / 4f;
-            _clickerButton = new NavButton("Grinder");
+            _clickerButton = new NavButton("Grinder", GameController.GoToGrinder);
             AddChild(_clickerButton);
 
-            _upgradesButton = new NavButton("Upgrades")
+            _upgradesButton = new NavButton("Upgrades", GameController.GoToUpgrades)
             {
                 PositionX = GameController.NavAreaHeight,
                 PositionY = VisibleBoundsWorldspace.MinY,
             };
             AddChild(_upgradesButton);
 
-            _achievementsButton = new NavButton("Achievements")
+            _achievementsButton = new NavButton("Achievements", () => { })
             {
                 PositionX = GameController.NavAreaHeight * 2,
                 PositionY = VisibleBoundsWorldspace.MinY
             };
             AddChild(_achievementsButton);
 
-            _settingsButton = new NavButton("Settings")
+            _settingsButton = new NavButton("Settings", () => { })
             {
                 PositionX = GameController.NavAreaHeight * 3,
                 PositionY = VisibleBoundsWorldspace.MinY
