@@ -8,22 +8,25 @@ namespace CoffeeGrinder.Upgrades
         public int GrindsPerAction { get; set; }
         public int UpgradePrice { get; set; }
         public int InitialGrindsPerAction { get; set; }
-        
+        public IncrementType IncrementType { get; set; }
+
         public void Upgrade()
         {
             Level++;
-            if(GrindsPerAction == 0)
-            {
-                GrindsPerAction = InitialGrindsPerAction;
-            }
-            else
-            {
-                GrindsPerAction += (int)Math.Ceiling(GrindsPerAction * .1);
-            }
+            GrindsPerAction = NextGrindsPerAction;
 
             GameController.BeansGround -= UpgradePrice;
 
             UpgradePrice = (int)Math.Ceiling(UpgradePrice * 1.25);
         }
+
+        public int NextGrindsPerAction => GrindsPerAction == 0 ? InitialGrindsPerAction : (int)Math.Ceiling(GrindsPerAction * 1.1);
+    }
+
+
+    public enum IncrementType
+    {
+        PerTap,
+        PerSecond
     }
 }

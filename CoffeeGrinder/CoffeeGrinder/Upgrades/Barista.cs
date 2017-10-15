@@ -8,6 +8,7 @@
             InitialGrindsPerAction = 1;
             GrindsPerAction = 0;
             UpgradePrice = 100;
+            IncrementType = IncrementType.PerSecond;
         }
     }
 }

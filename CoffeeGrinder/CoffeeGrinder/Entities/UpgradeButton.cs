@@ -9,14 +9,18 @@ namespace CoffeeGrinder.Entities
     {
         CCLabel _upgradeTitleLabel;
         CCLabel _upgradeCostLabel;
+        CCLabel _upgradeEffectLabel;
         CCSprite _buttonSprite;
         CCEventListenerTouchAllAtOnce touchListener;
         BaseUpgrade _upgrade;
+        string _buttonLabel;
 
         public UpgradeButton(string buttonLabel, float height, float width, BaseUpgrade upgrade)
         {
+
+            _buttonLabel = buttonLabel;
             _upgrade = upgrade;
-            
+
             ContentSize = new CCSize(width, height);
             var drawNode = new CCDrawNode();
 
@@ -24,7 +28,7 @@ namespace CoffeeGrinder.Entities
             drawNode.DrawPolygon(buttonBackgroundPoints, buttonBackgroundPoints.Length, CCColor4B.Gray, 1, CCColor4B.Black);
             AddChild(drawNode);
 
-            _upgradeTitleLabel = new CCLabel(buttonLabel, "Arial", 40, CCLabelFormat.SystemFont)
+            _upgradeTitleLabel = new CCLabel($"{_buttonLabel} (Lvl {_upgrade.Level})", "Arial", 40, CCLabelFormat.SystemFont)
             {
                 AnchorPoint = CCPoint.AnchorLowerLeft,
                 Position = new CCPoint(20, 50)
@@ -37,6 +41,13 @@ namespace CoffeeGrinder.Entities
                 Position = new CCPoint(20, 10)
             };
             AddChild(_upgradeCostLabel);
+
+            _upgradeEffectLabel = new CCLabel($"{_upgrade.GrindsPerAction} -> {_upgrade.NextGrindsPerAction} {GetIncrementTypeString()}", "Arial", 30, CCLabelFormat.SystemFont)
+            {
+                AnchorPoint = CCPoint.AnchorMiddleRight,
+                Position = new CCPoint(width - 10, height / 2)
+            };
+            AddChild(_upgradeEffectLabel);
 
             touchListener = new CCEventListenerTouchAllAtOnce
             {
@@ -57,9 +68,16 @@ namespace CoffeeGrinder.Entities
                 if (isTouchInside && GameController.BeansGround >= _upgrade.UpgradePrice)
                 {
                     _upgrade.Upgrade();
+                    _upgradeTitleLabel.Text = $"{_buttonLabel} (Lvl {_upgrade.Level})";
                     _upgradeCostLabel.Text = $"{_upgrade.UpgradePrice} ground beans";
+                    _upgradeEffectLabel.Text = $"{_upgrade.GrindsPerAction} -> {_upgrade.NextGrindsPerAction} {GetIncrementTypeString()}";
                 }
             }
+        }
+
+        private string GetIncrementTypeString()
+        {
+            return _upgrade.IncrementType == IncrementType.PerTap ? "Per Tap" : "Per Second";
         }
     }
 }

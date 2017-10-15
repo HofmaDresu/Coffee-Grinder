@@ -14,6 +14,7 @@ namespace CoffeeGrinder.Upgrades
             InitialGrindsPerAction = 1;
             GrindsPerAction = 1;
             UpgradePrice = 15;
+            IncrementType = IncrementType.PerTap;
         }
     }
 }
