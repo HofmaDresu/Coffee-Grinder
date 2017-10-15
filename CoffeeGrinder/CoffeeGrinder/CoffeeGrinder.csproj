@@ -41,6 +41,7 @@
     <Compile Include="NavLayer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UpgradesScene.cs" />
+    <Compile Include="Upgrades\InternationalFranchise.cs" />
     <Compile Include="Upgrades\NationalFranchise.cs" />
     <Compile Include="Upgrades\LocalChain.cs" />
     <Compile Include="Upgrades\Shop.cs" />

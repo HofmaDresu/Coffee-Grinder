@@ -4,7 +4,7 @@
     {
         public NationalFranchise()
         {
-            DisplayName = "Local Chains";
+            DisplayName = "National Franchise";
             Level = 0;
             InitialGrindsPerAction = 113;
             GrindsPerAction = 0;

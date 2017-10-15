@@ -20,9 +20,10 @@ namespace CoffeeGrinder
         public static Shop CoffeeShop = new Shop();
         public static LocalChain CoffeeLocalChain = new LocalChain();
         public static NationalFranchise CoffeeNationalFranchise = new NationalFranchise();
+        public static InternationalFranchise CoffeeInternationalFranchise = new InternationalFranchise();
 
 
-        public static List<BaseUpgrade> AllUpgrades => new List<BaseUpgrade> { CoffeeHandGrinder, CoffeeElectricGrinder, CoffeeBarista, CoffeeRoastery, CoffeeShop, CoffeeLocalChain, CoffeeNationalFranchise };
+        public static List<BaseUpgrade> AllUpgrades => new List<BaseUpgrade> { CoffeeHandGrinder, CoffeeElectricGrinder, CoffeeBarista, CoffeeRoastery, CoffeeShop, CoffeeLocalChain, CoffeeNationalFranchise, CoffeeInternationalFranchise };
 
         public static long GrindsPerSecond => AllUpgrades.Where(u => u.IncrementType == IncrementType.PerSecond).Sum(u => u.GrindsPerAction);
 
