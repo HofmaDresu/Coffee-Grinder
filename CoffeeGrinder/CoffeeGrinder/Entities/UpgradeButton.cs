@@ -2,6 +2,7 @@
 using CoffeeGrinder.Upgrades;
 using System.Collections.Generic;
 using System.Linq;
+using System;
 
 namespace CoffeeGrinder.Entities
 {
@@ -13,6 +14,7 @@ namespace CoffeeGrinder.Entities
         CCSprite _buttonSprite;
         CCEventListenerTouchAllAtOnce touchListener;
         BaseUpgrade _upgrade;
+        bool _countTouchAsTap;
 
         public UpgradeButton(float height, float width, BaseUpgrade upgrade)
         {
@@ -48,26 +50,45 @@ namespace CoffeeGrinder.Entities
 
             touchListener = new CCEventListenerTouchAllAtOnce
             {
-                OnTouchesEnded = HandleInput
+                OnTouchesBegan = HandleTouchBegin,
+                OnTouchesMoved = HandleTouchMoved,
+                OnTouchesEnded = HandleUpgradeTapped
             };
             AddEventListener(touchListener, this);
         }
 
-        private void HandleInput(List<CCTouch> touches, CCEvent touchEvent)
+        private void HandleTouchBegin(List<CCTouch> touches, CCEvent touchEvent)
         {
             var firstTouch = touches.FirstOrDefault();
 
             if (firstTouch != null)
             {
-                bool isTouchInside = BoundingBoxTransformedToWorld.ContainsPoint(firstTouch.Location);
+                _countTouchAsTap = BoundingBoxTransformedToWorld.ContainsPoint(firstTouch.Location);
+            }
+        }
 
-                if (isTouchInside && GameController.BeansGround >= _upgrade.UpgradePrice)
+        private void HandleTouchMoved(List<CCTouch> touches, CCEvent touchEvent)
+        {
+            var firstTouch = touches.FirstOrDefault();
+            if (firstTouch != null)
+            {
+                var distanceMoved = firstTouch.Delta.Y;
+
+                if (Math.Abs(distanceMoved) > 5)
                 {
-                    _upgrade.Upgrade();
-                    _upgradeTitleLabel.Text = $"{_upgrade.DisplayName} (Lvl {_upgrade.Level})";
-                    _upgradeCostLabel.Text = $"{_upgrade.UpgradePrice} ground beans";
-                    _upgradeEffectLabel.Text = $"{_upgrade.GrindsPerAction} -> {_upgrade.NextGrindsPerAction} {GetIncrementTypeString()}";
+                    _countTouchAsTap = false;
                 }
+            }
+        }
+
+        private void HandleUpgradeTapped(List<CCTouch> touches, CCEvent touchEvent)
+        {
+            if (_countTouchAsTap && GameController.BeansGround >= _upgrade.UpgradePrice)
+            {
+                _upgrade.Upgrade();
+                _upgradeTitleLabel.Text = $"{_upgrade.DisplayName} (Lvl {_upgrade.Level})";
+                _upgradeCostLabel.Text = $"{_upgrade.UpgradePrice} ground beans";
+                _upgradeEffectLabel.Text = $"{_upgrade.GrindsPerAction} -> {_upgrade.NextGrindsPerAction} {GetIncrementTypeString()}";
             }
         }
 

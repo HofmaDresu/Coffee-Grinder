@@ -49,13 +49,13 @@ namespace CoffeeGrinder
             var firstTouch = touches.FirstOrDefault();
             if(firstTouch != null)
             {
-                var distanceMoved = firstTouch.LocationOnScreen.Y - firstTouch.PreviousLocationOnScreen.Y;
+                var distanceMoved = firstTouch.Delta.Y;
                 
                 if(Math.Abs(distanceMoved) > 5)
                 {
                     // This moves the location of the camera:
                     var center = Camera.CenterInWorldspace;
-                    center.Y = Math.Min(_initialCenter.Y, Math.Max(center.Y + distanceMoved, (_initialCenter.Y * 2) + GameController.NavAreaHeight - _totalListHeight));
+                    center.Y = Math.Min(_initialCenter.Y, Math.Max(center.Y - distanceMoved, (_initialCenter.Y * 2) + GameController.NavAreaHeight - _totalListHeight));
                     Camera.CenterInWorldspace = center;
 
                     // This moves where the camera is looking.
