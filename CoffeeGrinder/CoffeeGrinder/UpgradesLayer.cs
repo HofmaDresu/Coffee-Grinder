@@ -9,20 +9,27 @@ namespace CoffeeGrinder
 {
     public class UpgradesLayer : CCLayer
     {
+        private CCEventListenerTouchAllAtOnce _touchListener;
+        private CCPoint3 _initialCenter;
 
         public UpgradesLayer()
         {
 
+            _touchListener = new CCEventListenerTouchAllAtOnce
+            {
+                OnTouchesMoved = HandleInput
+            };
+            AddEventListener(_touchListener, this);
         }
 
         protected override void AddedToScene()
         {
-            var buttonHeight = 100;
-            var buttonHeightWithSeparator = 120;
             base.AddedToScene();
 
             var buttonVerticalPosition = VisibleBoundsWorldspace.MaxY;
             var buttonWidth = VisibleBoundsWorldspace.MaxX - 20;
+            var buttonHeight = 120;
+            var buttonHeightWithSeparator = buttonHeight + 20;
 
             foreach (var upgrade in GameController.AllUpgrades)
             {
@@ -31,7 +38,35 @@ namespace CoffeeGrinder
                 AddChild(upgradeButton);
                 upgradeButton.Position = new CCPoint(5, buttonVerticalPosition);
             }
+
+            _initialCenter = Camera.CenterInWorldspace;
         }
-	}
+
+        private void HandleInput(List<CCTouch> touches, CCEvent touchEvent)
+        {
+            var firstTouch = touches.FirstOrDefault();
+            if(firstTouch != null)
+            {
+                var distanceMoved = firstTouch.LocationOnScreen.Y - firstTouch.PreviousLocationOnScreen.Y;
+                
+                if(Math.Abs(distanceMoved) > 5)
+                {
+                    // This moves the location of the camera:
+                    var center = Camera.CenterInWorldspace;
+                    center.Y = Math.Min(_initialCenter.Y, Math.Max(center.Y + distanceMoved, GameController.NavAreaHeight));
+                    Camera.CenterInWorldspace = center;
+
+                    // This moves where the camera is looking.
+                    // If we don't do this, the camera continues
+                    // to look at its center location, resulting in
+                    // perspective being applied to the scene:
+                    var target = Camera.TargetInWorldspace;
+                    target.X = center.X;
+                    target.Y = center.Y;
+                    Camera.TargetInWorldspace = target;
+                }
+            }            
+        }
+    }
 }
 
