@@ -11,21 +11,45 @@ namespace CoffeeGrinder.Entities
     {
         CCLabel _buttonLabel;
         CCSprite _buttonSprite;
+        CCEventListenerTouchAllAtOnce touchListener;
 
         public NavButton(string buttonLabel, float size)
         {
-            var negativeHalfSize = -.5f * size;
+            ContentSize = new CCSize(size, size);
+            AnchorPoint = CCPoint.AnchorLowerLeft;
             var halfSize = .5f * size;
             var drawNode = new CCDrawNode();
+
+            var buttonBackgroundPoints = new CCPoint[] { new CCPoint(0, 0), new CCPoint(0, size), new CCPoint(size, size), new CCPoint(size, 0) };
+            drawNode.DrawPolygon(buttonBackgroundPoints, buttonBackgroundPoints.Length, CCColor4B.Gray, 1, CCColor4B.Black);
             AddChild(drawNode);
 
-            var buttonBackgroundPoints = new CCPoint[] { new CCPoint(negativeHalfSize, negativeHalfSize), new CCPoint(negativeHalfSize, halfSize), new CCPoint(halfSize, halfSize), new CCPoint(halfSize, negativeHalfSize) };
-            drawNode.DrawPolygon(buttonBackgroundPoints, buttonBackgroundPoints.Length, CCColor4B.Gray, 1, CCColor4B.Black);
-
             _buttonLabel = new CCLabel(buttonLabel, "Arial", 30, CCLabelFormat.SystemFont);
+            _buttonLabel.Position = new CCPoint(halfSize, halfSize);
             AddChild(_buttonLabel);
 
+            touchListener = new CCEventListenerTouchAllAtOnce
+            {
+                OnTouchesEnded = HandleInput
+            };
+            AddEventListener(touchListener, this);
         }
 
+
+        private void HandleInput(List<CCTouch> touches, CCEvent touchEvent)
+        {
+            var firstTouch = touches.FirstOrDefault();
+
+            if (firstTouch != null)
+            {
+
+                bool isTouchInside = BoundingBoxTransformedToWorld.ContainsPoint(firstTouch.Location);
+
+                if (isTouchInside)
+                {
+                    int foo = 1;
+                }
+            }
+        }
     }
 }

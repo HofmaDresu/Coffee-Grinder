@@ -21,31 +21,27 @@ namespace CoffeeGrinder
 
 
             var navButtonSize = VisibleBoundsWorldspace.MaxX / 4f;
-            _clickerButton = new NavButton("Grinder", navButtonSize)
-            {
-                PositionX = navButtonSize / 2,
-                PositionY = navButtonSize / 2
-            };
+            _clickerButton = new NavButton("Grinder", navButtonSize);
             AddChild(_clickerButton);
 
             _upgradesButton = new NavButton("Upgrades", navButtonSize)
             {
-                PositionX = navButtonSize / 2 + navButtonSize,
-                PositionY = navButtonSize / 2
+                PositionX =navButtonSize,
+                PositionY = VisibleBoundsWorldspace.MinY,
             };
             AddChild(_upgradesButton);
 
             _achievementsButton = new NavButton("Achievements", navButtonSize)
             {
-                PositionX = navButtonSize / 2 + navButtonSize * 2,
-                PositionY = navButtonSize / 2
+                PositionX = navButtonSize * 2,
+                PositionY = VisibleBoundsWorldspace.MinY
             };
             AddChild(_achievementsButton);
 
             _settingsButton = new NavButton("Settings", navButtonSize)
             {
-                PositionX = navButtonSize / 2 + navButtonSize * 3,
-                PositionY = navButtonSize / 2
+                PositionX = navButtonSize * 3,
+                PositionY = VisibleBoundsWorldspace.MinY
             };
             AddChild(_settingsButton);
         }
