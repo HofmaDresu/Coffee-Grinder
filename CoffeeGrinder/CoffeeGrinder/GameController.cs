@@ -10,6 +10,7 @@ namespace CoffeeGrinder
     public static  class GameController
     {
         public static long BeansGround;
+        public static float NavAreaHeight;
 
         public static CCGameView GameView
         {

@@ -19,11 +19,11 @@ namespace CoffeeGrinder
             _backgroundLayer = new CCLayerColor(CCColor4B.LightGray);
             AddLayer(_backgroundLayer);
 
-            _grinderLayer = new GrinderLayer();
-            AddLayer(_grinderLayer);
-
             _navLayer = new NavLayer();
             AddLayer(_navLayer);
+
+            _grinderLayer = new GrinderLayer();
+            AddLayer(_grinderLayer);
         }
     }
 }

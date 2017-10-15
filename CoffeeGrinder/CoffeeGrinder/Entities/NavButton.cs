@@ -13,8 +13,9 @@ namespace CoffeeGrinder.Entities
         CCSprite _buttonSprite;
         CCEventListenerTouchAllAtOnce touchListener;
 
-        public NavButton(string buttonLabel, float size)
+        public NavButton(string buttonLabel)
         {
+            var size = GameController.NavAreaHeight;
             ContentSize = new CCSize(size, size);
             AnchorPoint = CCPoint.AnchorLowerLeft;
             var halfSize = .5f * size;
