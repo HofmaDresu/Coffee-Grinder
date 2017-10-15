@@ -16,9 +16,13 @@ namespace CoffeeGrinder
         public static HandGrinder CoffeeHandGrinder = new HandGrinder();
         public static ElectricGrinder CoffeeElectricGrinder = new ElectricGrinder();
         public static Barista CoffeeBarista = new Barista();
+        public static Roastery CoffeeRoastery = new Roastery();
+        public static Shop CoffeeShop = new Shop();
+        public static LocalChain CoffeeLocalChain = new LocalChain();
+        public static NationalFranchise CoffeeNationalFranchise = new NationalFranchise();
 
 
-        public static List<BaseUpgrade> AllUpgrades => new List<BaseUpgrade> { CoffeeHandGrinder, CoffeeElectricGrinder, CoffeeBarista };
+        public static List<BaseUpgrade> AllUpgrades => new List<BaseUpgrade> { CoffeeHandGrinder, CoffeeElectricGrinder, CoffeeBarista, CoffeeRoastery, CoffeeShop, CoffeeLocalChain, CoffeeNationalFranchise };
 
         public static long GrindsPerSecond => AllUpgrades.Where(u => u.IncrementType == IncrementType.PerSecond).Sum(u => u.GrindsPerAction);
 

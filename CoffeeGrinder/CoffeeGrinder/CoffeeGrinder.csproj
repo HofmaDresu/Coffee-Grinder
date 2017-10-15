@@ -41,6 +41,10 @@
     <Compile Include="NavLayer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UpgradesScene.cs" />
+    <Compile Include="Upgrades\NationalFranchise.cs" />
+    <Compile Include="Upgrades\LocalChain.cs" />
+    <Compile Include="Upgrades\Shop.cs" />
+    <Compile Include="Upgrades\Roastery.cs" />
     <Compile Include="Upgrades\ElectricGrinder.cs" />
     <Compile Include="Upgrades\BaseUpgrade.cs" />
     <Compile Include="Upgrades\Barista.cs" />
