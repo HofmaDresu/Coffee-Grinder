@@ -42,7 +42,7 @@ namespace CoffeeGrinder.Entities
             _upgradeEffectLabel = new CCLabel($"{_upgrade.GrindsPerAction} -> {_upgrade.NextGrindsPerAction} {GetIncrementTypeString()}", "Arial", 30, CCLabelFormat.SystemFont)
             {
                 AnchorPoint = CCPoint.AnchorMiddleRight,
-                Position = new CCPoint(width - 10, height / 2)
+                Position = new CCPoint(width - 10, height / 2 - 10)
             };
             AddChild(_upgradeEffectLabel);
 
