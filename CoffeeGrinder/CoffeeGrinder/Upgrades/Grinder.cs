@@ -6,17 +6,14 @@ using System.Threading.Tasks;
 
 namespace CoffeeGrinder.Upgrades
 {
-    public class Grinder
+    public class Grinder : BaseUpgrade
     {
-        public int Level { get; set; } = 1;
-        public int GrindsPerAction { get; set; } = 1;
-        public int UpgradePrice { get; set; } = 15;
-        
-        public void Upgrade()
+        public Grinder()
         {
-            Level++;
-            GrindsPerAction += (int)Math.Ceiling(GrindsPerAction * .15);
-            UpgradePrice += (int)Math.Ceiling(UpgradePrice * 1.5);
+            Level = 1;
+            InitialGrindsPerAction = 1;
+            GrindsPerAction = 1;
+            UpgradePrice = 15;
         }
     }
 }

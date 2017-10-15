@@ -14,6 +14,7 @@ namespace CoffeeGrinder
         public static float NavAreaHeight;
 
         public static Grinder CoffeeGrinder = new Grinder();
+        public static Barista CoffeeBarista = new Barista();
 
         public static CCGameView GameView
         {

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace CoffeeGrinder
 {
-    public class GameScene : CCScene
+    public class GameScene : BaseScene
     {
         CCLayer _grinderLayer;
         CCLayer _backgroundLayer;

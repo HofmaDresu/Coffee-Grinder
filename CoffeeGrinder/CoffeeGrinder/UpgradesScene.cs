@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CoffeeGrinder
 {
-    public class UpgradesScene : CCScene
+    public class UpgradesScene : BaseScene
     {
         CCLayer _upgradesLayer;
         CCLayer _backgroundLayer;
