@@ -38,6 +38,7 @@
     <Compile Include="NavLayer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UpgradesScene.cs" />
+    <Compile Include="Upgrades\Grinder.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="box2d, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL">

@@ -1,4 +1,5 @@
 ﻿using CocosSharp;
+using CoffeeGrinder.Upgrades;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,13 +8,12 @@ using System.Threading.Tasks;
 
 namespace CoffeeGrinder
 {
-    public static  class GameController
+    public static class GameController
     {
         public static long BeansGround;
         public static float NavAreaHeight;
 
-        private static CCScene _gameScene;
-        private static CCScene _upgradesScene;
+        public static Grinder CoffeeGrinder = new Grinder();
 
         public static CCGameView GameView
         {
