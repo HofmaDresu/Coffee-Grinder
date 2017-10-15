@@ -13,28 +13,28 @@ namespace CoffeeGrinder.Entities
         CCEventListenerTouchAllAtOnce touchListener;
         BaseUpgrade _upgrade;
 
-        public UpgradeButton(string buttonLabel, BaseUpgrade upgrade)
+        public UpgradeButton(string buttonLabel, float height, float width, BaseUpgrade upgrade)
         {
             _upgrade = upgrade;
-
-            var height = 100;
-            var width = VisibleBoundsWorldspace.MaxY - 20;
+            
             ContentSize = new CCSize(width, height);
             var drawNode = new CCDrawNode();
 
-            var buttonBackgroundPoints = new CCPoint[] { new CCPoint(20, 0), new CCPoint(20, height), new CCPoint(width, height), new CCPoint(width, 0) };
+            var buttonBackgroundPoints = new CCPoint[] { new CCPoint(10, 0), new CCPoint(10, height), new CCPoint(width, height), new CCPoint(width, 0) };
             drawNode.DrawPolygon(buttonBackgroundPoints, buttonBackgroundPoints.Length, CCColor4B.Gray, 1, CCColor4B.Black);
             AddChild(drawNode);
 
             _upgradeTitleLabel = new CCLabel(buttonLabel, "Arial", 40, CCLabelFormat.SystemFont)
             {
-                Position = new CCPoint(20, 80)
+                AnchorPoint = CCPoint.AnchorLowerLeft,
+                Position = new CCPoint(20, 50)
             };
             AddChild(_upgradeTitleLabel);
 
             _upgradeCostLabel = new CCLabel($"{_upgrade.UpgradePrice} ground beans", "Arial", 30, CCLabelFormat.SystemFont)
             {
-                Position = new CCPoint(20, 20)
+                AnchorPoint = CCPoint.AnchorLowerLeft,
+                Position = new CCPoint(20, 10)
             };
             AddChild(_upgradeCostLabel);
 
@@ -44,7 +44,6 @@ namespace CoffeeGrinder.Entities
             };
             AddEventListener(touchListener, this);
         }
-
 
         private void HandleInput(List<CCTouch> touches, CCEvent touchEvent)
         {

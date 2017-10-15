@@ -21,8 +21,8 @@ namespace CoffeeGrinder
             _navLayer = new NavLayer();
             AddLayer(_navLayer);
 
-            //_grinderLayer = new GrinderLayer();
-            //AddLayer(_grinderLayer);
+            _upgradesLayer = new UpgradesLayer();
+            AddLayer(_upgradesLayer);
         }
     }
 }
