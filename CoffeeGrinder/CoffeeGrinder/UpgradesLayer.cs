@@ -19,19 +19,21 @@ namespace CoffeeGrinder
 
         protected override void AddedToScene()
         {
+            var buttonHeight = 100;
+            var buttonHeightWithSeparator = 120;
             base.AddedToScene();
 
-            var buttonVerticalPosition = VisibleBoundsWorldspace.MaxY - 110;
+            var buttonVerticalPosition = VisibleBoundsWorldspace.MaxY - buttonHeightWithSeparator;
             var buttonWidth = VisibleBoundsWorldspace.MaxX - 20;
 
-            _grinderUpgradesButton = new UpgradeButton("Grinder", 100, buttonWidth, GameController.CoffeeGrinder);
+            _grinderUpgradesButton = new UpgradeButton("Grinder", buttonHeight, buttonWidth, GameController.CoffeeGrinder);
             AddChild(_grinderUpgradesButton);
-            _grinderUpgradesButton.Position = new CCPoint(10, buttonVerticalPosition);
+            _grinderUpgradesButton.Position = new CCPoint(5, buttonVerticalPosition);
 
-            buttonVerticalPosition -= 110;
-            _baristaUpgradesButton = new UpgradeButton("Baristas", 100, buttonWidth, GameController.CoffeeBarista);
+            buttonVerticalPosition -= buttonHeightWithSeparator;
+            _baristaUpgradesButton = new UpgradeButton("Baristas", buttonHeight, buttonWidth, GameController.CoffeeBarista);
             AddChild(_baristaUpgradesButton);
-            _baristaUpgradesButton.Position = new CCPoint(10, buttonVerticalPosition);
+            _baristaUpgradesButton.Position = new CCPoint(5, buttonVerticalPosition);
         }
 	}
 }
