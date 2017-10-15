@@ -9,7 +9,8 @@ namespace CoffeeGrinder
 {
     public class UpgradesLayer : CCLayer
     {
-        UpgradeButton _grinderUpgradesButton;
+        UpgradeButton _handGrinderUpgradesButton;
+        UpgradeButton _electricGrinderUpgradesButton;
         UpgradeButton _baristaUpgradesButton;
 
         public UpgradesLayer()
@@ -26,9 +27,14 @@ namespace CoffeeGrinder
             var buttonVerticalPosition = VisibleBoundsWorldspace.MaxY - buttonHeightWithSeparator;
             var buttonWidth = VisibleBoundsWorldspace.MaxX - 20;
 
-            _grinderUpgradesButton = new UpgradeButton("Grinder", buttonHeight, buttonWidth, GameController.CoffeeGrinder);
-            AddChild(_grinderUpgradesButton);
-            _grinderUpgradesButton.Position = new CCPoint(5, buttonVerticalPosition);
+            _handGrinderUpgradesButton = new UpgradeButton("Hand Grinder", buttonHeight, buttonWidth, GameController.CoffeeHandGrinder);
+            AddChild(_handGrinderUpgradesButton);
+            _handGrinderUpgradesButton.Position = new CCPoint(5, buttonVerticalPosition);
+
+            buttonVerticalPosition -= buttonHeightWithSeparator;
+            _electricGrinderUpgradesButton = new UpgradeButton("Electric Grinders", buttonHeight, buttonWidth, GameController.CoffeeElectricGrinder);
+            AddChild(_electricGrinderUpgradesButton);
+            _electricGrinderUpgradesButton.Position = new CCPoint(5, buttonVerticalPosition);
 
             buttonVerticalPosition -= buttonHeightWithSeparator;
             _baristaUpgradesButton = new UpgradeButton("Baristas", buttonHeight, buttonWidth, GameController.CoffeeBarista);

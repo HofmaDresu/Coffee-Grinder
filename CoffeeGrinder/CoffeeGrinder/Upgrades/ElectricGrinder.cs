@@ -1,13 +1,13 @@
 ﻿namespace CoffeeGrinder.Upgrades
 {
-    public class Barista : BaseUpgrade
+    public class ElectricGrinder : BaseUpgrade
     {
-        public Barista()
+        public ElectricGrinder()
         {
             Level = 0;
-            InitialGrindsPerAction = 5;
+            InitialGrindsPerAction = 1;
             GrindsPerAction = 0;
-            UpgradePrice = 500;
+            UpgradePrice = 100;
             IncrementType = IncrementType.PerSecond;
         }
     }

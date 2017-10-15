@@ -70,7 +70,7 @@ namespace CoffeeGrinder
 
                 if (isTouchInside)
                 {
-                    GameController.BeansGround += touches.Count * GameController.CoffeeGrinder.GrindsPerAction;
+                    GameController.BeansGround += touches.Count * GameController.CoffeeHandGrinder.GrindsPerAction;
                 }
             }
         }

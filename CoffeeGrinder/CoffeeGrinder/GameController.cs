@@ -13,7 +13,8 @@ namespace CoffeeGrinder
         public static long BeansGround;
         public static float NavAreaHeight;
 
-        public static Grinder CoffeeGrinder = new Grinder();
+        public static HandGrinder CoffeeHandGrinder = new HandGrinder();
+        public static ElectricGrinder CoffeeElectricGrinder = new ElectricGrinder();
         public static Barista CoffeeBarista = new Barista();
 
         public static CCGameView GameView

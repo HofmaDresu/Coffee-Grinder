@@ -41,9 +41,10 @@
     <Compile Include="NavLayer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UpgradesScene.cs" />
+    <Compile Include="Upgrades\ElectricGrinder.cs" />
     <Compile Include="Upgrades\BaseUpgrade.cs" />
     <Compile Include="Upgrades\Barista.cs" />
-    <Compile Include="Upgrades\Grinder.cs" />
+    <Compile Include="Upgrades\HandGrinder.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="box2d, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL">

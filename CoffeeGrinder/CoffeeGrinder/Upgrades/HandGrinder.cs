@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace CoffeeGrinder.Upgrades
 {
-    public class Grinder : BaseUpgrade
+    public class HandGrinder : BaseUpgrade
     {
-        public Grinder()
+        public HandGrinder()
         {
             Level = 1;
             InitialGrindsPerAction = 1;
