@@ -52,7 +52,7 @@ namespace CoffeeGrinder
 
         private static void InitializeAudio()
         {
-            CCAudioEngine.SharedEngine.PlayBackgroundMusic("CoffeeBlack", true);
+            //CCAudioEngine.SharedEngine.PlayBackgroundMusic("CoffeeBlack", true);
         }
 
         public static void GoToGrinder()
