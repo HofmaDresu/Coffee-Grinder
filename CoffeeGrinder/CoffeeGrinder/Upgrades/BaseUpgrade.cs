@@ -1,4 +1,5 @@
 ﻿using System;
+using static System.Math;
 
 namespace CoffeeGrinder.Upgrades
 {
@@ -18,10 +19,10 @@ namespace CoffeeGrinder.Upgrades
 
             GameController.BeansGround -= UpgradePrice;
 
-            UpgradePrice = (int)Math.Ceiling(UpgradePrice * 1.25);
+            UpgradePrice = (int)Ceiling(UpgradePrice * 1.45);
         }
 
-        public int NextGrindsPerAction => GrindsPerAction == 0 ? InitialGrindsPerAction : (int)Math.Ceiling(GrindsPerAction * (IncrementType == IncrementType.PerTap ? 1.1 : 1.25));
+        public int NextGrindsPerAction => GrindsPerAction == 0 ? InitialGrindsPerAction : IncrementType == IncrementType.PerTap ? (int)Ceiling(GrindsPerAction + Max(1, GrindsPerAction * .1)) : GrindsPerAction + (int)Ceiling(GrindsPerAction * (Level / (Level + 1m)) );
     }
 
 
